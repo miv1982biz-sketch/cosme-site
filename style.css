@@ -1,0 +1,134 @@
+/* コスメ単価ラボ 方向A（2026-11-09 ユーザー承認）
+   「美容メディアの柔らかさのまま、数字だけ研究室の精度で出す『単価の実験ノート』」＝数値併走型
+   - 書体：見出し＝Zen Maru Gothic、本文＝Zen Kaku Gothic New、数字は tabular-nums で桁を揃える
+   - 地＝白、識別色はコーラルローズ（--rose）だけに限定。罫線で組む。角丸カード・柔らかい影は使わない
+   - 商品カードは「写真エリア＋公表スペック＋単価ボックス」を1枚に収める型 */
+:root {
+  --ink:#33262b; --sub:#7d6a71; --line:#e7d3db; --line-dark:#33262b;
+  --paper:#fdf9fa; --row:#fff; --th:#f9eef2;
+  --rose:#b84a6e; --rose-soft:#f7e6ec;
+}
+* { box-sizing: border-box; }
+body { margin:0; font-family:"Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; color:var(--ink); background:var(--paper); line-height:1.8; font-size:16px; -webkit-font-smoothing:antialiased; }
+::selection { background:var(--rose-soft); }
+
+/* ヘッダー */
+header.site { position:sticky; top:0; z-index:10; background:var(--row); border-bottom:2px solid var(--rose); padding:12px 20px; }
+header.site .name { font-family:"Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif; font-size:21px; font-weight:700; letter-spacing:.02em; }
+header.site .name a { color:inherit; text-decoration:none; display:inline-block; padding:6px 0; }
+header.site .name a::before { content:""; display:inline-block; width:11px; height:11px; background:var(--rose); margin-right:9px; }
+header.site .tag { color:var(--sub); font-size:13px; }
+nav.main { margin-top:6px; font-size:14.5px; }
+nav.main a { margin-right:18px; color:var(--ink); text-decoration:underline; text-underline-offset:3px; font-weight:700; display:inline-block; padding:10px 2px; }
+
+/* 本文 */
+main { max-width:760px; margin:0 auto; padding:28px 24px 56px; background:var(--row); border-left:1px solid var(--line); border-right:1px solid var(--line); }
+h1 { font-family:"Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif; font-size:24px; line-height:1.5; margin:10px 0 14px; letter-spacing:.01em; }
+h2 { font-family:"Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif; font-size:19px; border-bottom:2px solid var(--line-dark); padding-bottom:6px; margin-top:42px; line-height:1.5; }
+h2::before { content:""; display:inline-block; width:9px; height:9px; background:var(--rose); margin-right:9px; vertical-align:2px; }
+h3 { font-size:16.5px; margin-top:26px; }
+p, li { font-size:16px; }
+a { color:var(--ink); text-decoration:underline; text-underline-offset:2px; }
+strong { color:var(--ink); }
+.num { font-variant-numeric:tabular-nums; font-feature-settings:"tnum"; }
+
+/* 日付メタ行（公開日・最終更新日・情報確認日） */
+.dateline { font-size:13px; color:var(--sub); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:7px 0; margin:14px 0; font-variant-numeric:tabular-nums; }
+
+/* トップの導入 */
+.leadline { font-family:"Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif; font-size:23px; font-weight:700; line-height:1.55; margin:6px 0 4px; }
+.leadsub { color:var(--sub); margin:0 0 6px; }
+
+/* 実験ノートのシート（項目名＋値の行で組む） */
+.sheet { border:1.5px solid var(--line-dark); margin:16px 0 8px; background:var(--row); }
+.srow { display:flex; justify-content:space-between; align-items:baseline; gap:18px; padding:11px 14px; border-bottom:1px solid var(--line); }
+.srow:last-child { border-bottom:none; }
+.srow .sk { font-size:13.5px; font-weight:700; }
+.srow .sv { font-size:18px; font-weight:700; text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.badge { display:inline-block; background:var(--rose); color:#fff; font-size:11.5px; font-weight:700; padding:2px 8px; margin-right:8px; vertical-align:3px; letter-spacing:.04em; }
+figure { margin:18px 0; }
+figure img { width:100%; display:block; }
+figcaption { font-size:12.5px; color:var(--sub); border:1px solid var(--line); border-top:none; padding:7px 11px; background:var(--row); }
+.sheet + figcaption, .figcap { font-size:12.5px; color:var(--sub); padding:7px 2px; }
+
+/* パンくず */
+.crumb { font-size:13px; color:var(--sub); margin:0 0 6px; }
+.crumb a { color:var(--sub); text-decoration:none; }
+.crumb a:hover { text-decoration:underline; }
+
+/* 開示ボックス */
+.disclosure { background:var(--paper); border:1px solid var(--line); border-left:4px solid var(--rose); padding:10px 14px; font-size:13px; color:var(--ink); margin:16px 0; }
+
+/* カードは罫線の行で組む（影・角丸なし） */
+.card { display:block; border:none; border-top:1px solid var(--line); padding:14px 2px; margin:0; background:transparent; text-decoration:none; color:inherit; }
+.card strong { display:block; font-size:16px; margin-bottom:4px; color:var(--ink); }
+.card span { display:block; color:var(--sub); font-size:14px; }
+.card .t { font-weight:700; font-size:16px; color:var(--ink); }
+.card .d { color:var(--sub); font-size:14px; }
+
+/* 商品カード（方向Aの型：写真エリア＋公表スペック行＋単価ボックス） */
+.pcard { border:1.5px solid var(--line-dark); margin:18px 0; background:var(--row); }
+.pcard .phead { display:flex; gap:0; border-bottom:1px solid var(--line); }
+.pcard .photo { width:168px; flex:none; background:var(--rose-soft); border-right:1px dashed var(--rose); display:flex; align-items:center; justify-content:center; text-align:center; padding:14px 10px; }
+.pcard .photo span { font-size:12px; color:var(--rose); font-weight:700; line-height:1.6; }
+.pcard .pmeta { flex:1; padding:12px 14px; }
+.pcard .pname { font-family:"Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif; font-weight:700; font-size:16.5px; margin:0 0 6px; }
+.pcard .prow { display:flex; justify-content:space-between; gap:14px; font-size:13.5px; padding:4px 0; border-bottom:1px dotted var(--line); }
+.pcard .prow:last-child { border-bottom:none; }
+.pcard .prow .pk { color:var(--sub); font-weight:700; flex:none; }
+.pcard .prow .pv { font-variant-numeric:tabular-nums; text-align:right; }
+/* 単価ボックス（カード内に置く、このサイトの核） */
+.tankabox { margin:0; padding:12px 14px; background:var(--rose-soft); border-top:1.5px solid var(--rose); display:flex; justify-content:space-between; align-items:baseline; gap:14px; }
+.tankabox .tk { font-size:13px; font-weight:700; color:var(--rose); }
+.tankabox .tv { font-size:24px; font-weight:700; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.tankabox .tv small { font-size:13px; font-weight:700; }
+.tankanote { font-size:12.5px; color:var(--sub); padding:7px 2px; }
+
+/* 表（公表スペック・ワークシート） */
+table { border-collapse:collapse; width:100%; margin:14px 0; font-size:14.5px; border:1px solid var(--line-dark); background:var(--row); }
+th, td { border-bottom:1px solid var(--line); padding:9px 12px; text-align:left; vertical-align:top; }
+tr:last-child td, tr:last-child th { border-bottom:none; }
+th { background:var(--th); font-weight:700; }
+table.spec td { font-variant-numeric:tabular-nums; }
+table.spec td.n { text-align:right; font-variant-numeric:tabular-nums; }
+@media (max-width:640px) {
+  table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .leadline { font-size:20px; }
+  h1 { font-size:22px; }
+  main { border-left:none; border-right:none; padding:24px 18px 48px; }
+  .srow { flex-direction:column; gap:2px; }
+  .srow .sv { text-align:left; }
+  .pcard .phead { flex-direction:column; }
+  .pcard .photo { width:auto; border-right:none; border-bottom:1px dashed var(--rose); min-height:92px; }
+  .tankabox { flex-direction:column; gap:2px; }
+}
+
+/* 検索 */
+.searchbox { margin:16px 0; }
+.searchbox input { width:100%; padding:12px 14px; font-size:16px; border:1.5px solid var(--line-dark); background:var(--row); }
+.searchbox input:focus { outline:2px solid var(--rose); outline-offset:1px; }
+
+/* フッター */
+footer.site { border-top:2px solid var(--rose); padding:24px 20px 30px; font-size:13px; color:var(--sub); text-align:center; background:var(--row); }
+footer.site a { color:var(--sub); margin:0 9px; }
+footer.site div { margin-top:10px; }
+.src { font-size:13px; color:var(--sub); }
+footer.site .sister { margin-top:10px; font-size:13px; }
+
+/* 記事一覧の行 */
+.thumbrow { display:flex; gap:14px; padding:13px 0; border-bottom:1px solid var(--line); align-items:flex-start; text-decoration:none; color:inherit; }
+a.thumbrow:hover .t { text-decoration:underline; }
+.thumbrow img { width:118px; height:82px; object-fit:cover; flex:none; }
+.thumbrow .t { font-weight:700; font-size:15.5px; display:block; }
+.thumbrow .d { font-size:13px; color:var(--sub); display:block; }
+.card.thumbrow { border:none; border-bottom:1px solid var(--line); border-top:none; padding:13px 0; margin:0; background:transparent; display:flex; }
+.thumbrow .txt { display:block; }
+.bignum { font-size:26px; font-weight:700; font-variant-numeric:tabular-nums; }
+
+/* 広告ボックス（記事内に広告リンクを設置する場合の枠。設置はプログラム別チェック通過後に限る） */
+.adbox { border:2px solid var(--line-dark); padding:16px; margin:24px 0; text-align:center; background:var(--row); }
+.adbox .src { text-align:left; }
+.adbox img { max-width:100%; height:auto; }
+
+.share { margin:28px 0 8px; padding:12px 0; border-top:1px solid var(--line); font-size:14px; }
+.share a { margin-right:14px; }
