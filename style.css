@@ -21,6 +21,7 @@ header.site { position:sticky; top:0; z-index:10; background:rgba(255,255,255,.9
 header.site .name { font-family:var(--serif); font-size:26px; font-weight:600; letter-spacing:.14em; }
 header.site .name a { color:inherit; text-decoration:none; display:inline-flex; align-items:center; gap:12px; padding:4px 0; }
 header.site .name .logo { width:42px; height:42px; display:block; flex:none; }
+header.site .name .logo-lockup { height:46px; width:auto; display:block; }
 header.site .tag { color:var(--sub); font-size:12.5px; letter-spacing:.06em; margin-top:8px; }
 nav.main { margin-top:16px; border-top:1px solid var(--line-soft); padding:12px 0 14px; font-size:13.5px; letter-spacing:.12em; }
 nav.main a { margin:0 16px; color:var(--ink); text-decoration:none; display:inline-block; padding:6px 2px; transition:color .3s; }
@@ -111,6 +112,7 @@ table.spec td.n { text-align:right; font-variant-numeric:tabular-nums; }
   header.site .name { font-size:21px; }
   header.site .name a { gap:9px; flex-wrap:nowrap; }
   header.site .name .logo { width:40px; height:40px; }
+  header.site .name .logo-lockup { height:38px; }
   header.site .tag { font-size:11.5px; margin-top:6px; }
   nav.main { margin-top:10px; padding:9px 0 11px; }
   nav.main a { margin:0 10px; }
@@ -219,4 +221,25 @@ a.thumbrow:hover .t, .card.thumbrow:hover strong { color:var(--bronze); }
   .art.small .abody { padding:14px 16px; }
   .art.small .atitle { font-size:14.5px; }
   .eyecatch { margin:18px 0 2px; }
+}
+
+/* ===== 第3段（2026-11-20）：記事リストの行型（プレスリリース一覧型） =====
+   左に小さい正方形サムネイル（72px／SP 64px）、右に日付＋カテゴリと明朝タイトル。
+   行は区切り線で分け、面の色は付けない。トップと記事一覧で共用 */
+.alist { border-top:1px solid var(--line); }
+.card.arow { display:flex; gap:16px; align-items:flex-start; background:transparent; padding:16px 2px; margin:0; border-bottom:1px solid var(--line); text-decoration:none; color:inherit; }
+.card.arow:hover { background:var(--warm); }
+.arow .rthumb { flex:none; width:72px; height:72px; overflow:hidden; display:block; }
+.arow .rthumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.arow .rbody { flex:1; display:block; min-width:0; padding-top:2px; }
+.arow .rdate { display:block; font-size:12.5px; color:var(--sub); letter-spacing:.06em; margin-bottom:4px; font-variant-numeric:tabular-nums; }
+.arow .rdate .rcat { color:var(--bronze); display:inline; font-size:inherit; }
+.arow .rdate .rcat::before { content:"|"; padding:0 .55em; color:var(--beige); }
+.arow .rtitle { display:block; font-family:var(--serif); font-size:16px; font-weight:600; letter-spacing:.03em; line-height:1.6; color:var(--ink); transition:color .2s ease; }
+.card.arow:hover .rtitle { color:var(--bronze); }
+@media (max-width:640px) {
+  .card.arow { gap:13px; padding:14px 0; }
+  .arow .rthumb { width:64px; height:64px; }
+  .arow .rdate { font-size:12px; margin-bottom:3px; }
+  .arow .rtitle { font-size:15px; line-height:1.55; }
 }
