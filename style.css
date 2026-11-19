@@ -20,7 +20,7 @@ body { margin:0; font-family:var(--sans); color:var(--ink); background:var(--pap
 header.site { position:sticky; top:0; z-index:10; background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); padding:24px 20px 0; text-align:center; }
 header.site .name { font-family:var(--serif); font-size:26px; font-weight:600; letter-spacing:.14em; }
 header.site .name a { color:inherit; text-decoration:none; display:inline-flex; align-items:center; gap:12px; padding:4px 0; }
-header.site .name .logo { width:42px; height:42px; display:block; }
+header.site .name .logo { width:42px; height:42px; display:block; flex:none; }
 header.site .tag { color:var(--sub); font-size:12.5px; letter-spacing:.06em; margin-top:8px; }
 nav.main { margin-top:16px; border-top:1px solid var(--line-soft); padding:12px 0 14px; font-size:13.5px; letter-spacing:.12em; }
 nav.main a { margin:0 16px; color:var(--ink); text-decoration:none; display:inline-block; padding:6px 2px; transition:color .3s; }
@@ -107,8 +107,15 @@ table.spec td { font-variant-numeric:tabular-nums; }
 table.spec td.n { text-align:right; font-variant-numeric:tabular-nums; }
 @media (max-width:640px) {
   table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
-  header.site .name { font-size:22px; }
-  .hero { height:62vh; min-height:340px; }
+  header.site { padding:14px 14px 0; }
+  header.site .name { font-size:21px; }
+  header.site .name a { gap:9px; flex-wrap:nowrap; }
+  header.site .name .logo { width:40px; height:40px; }
+  header.site .tag { font-size:11.5px; margin-top:6px; }
+  nav.main { margin-top:10px; padding:9px 0 11px; }
+  nav.main a { margin:0 10px; }
+  .hero { height:60vh; min-height:330px; }
+  .hero-circle { width:min(330px,80vw); height:min(330px,80vw); padding:26px 30px; }
   .hero .leadline { font-size:17px; }
   .hero-logo { width:64px; height:64px; }
   h1 { font-size:24px; }
@@ -159,3 +166,57 @@ a.thumbrow:hover .t, .card.thumbrow:hover strong { color:var(--bronze); }
 /* スクロールフェードイン（JSで .in を付与。JSなしでも表示されるよう初期値は通常表示にし、JS有効時のみ .rv を付けて隠す） */
 .rv { opacity:0; transform:translateY(10px); transition:opacity .8s ease, transform .8s ease; }
 .rv.in { opacity:1; transform:none; }
+
+/* ===== 第2段（2026-11-20）：記事一覧・記事詳細の文法 =====
+   参考サイトの一覧型（地の面＋左サムネイル1:1＋日付→タイトル→リード）と
+   詳細型（リード画像→タイトル→日付・カテゴリ→本文→末尾の導線）を当サイトの色で再現 */
+/* 記事アイテム（一覧・トップ・関連で共用） */
+.art { display:flex; align-items:stretch; background:#f7f2ec; padding:0; margin:0 0 28px; text-decoration:none; color:inherit; transition:background .3s; }
+.art:hover { background:#f2e9dd; }
+.art .athumb { flex:none; width:27%; overflow:hidden; display:block; }
+.art .athumb img { width:100%; height:100%; aspect-ratio:1/1; object-fit:cover; display:block; transition:transform .75s ease; }
+.art:hover .athumb img { transform:scale(1.2); }
+.art .abody { flex:1; padding:30px 36px; display:block; }
+.art .adate { display:block; font-size:14px; color:var(--sub); letter-spacing:.06em; margin-bottom:.9em; font-variant-numeric:tabular-nums; }
+.art .adate .acat { color:var(--bronze); display:inline; font-size:inherit; }
+.art .adate .acat::before { content:"|"; padding:0 .55em; color:var(--beige); }
+.art .atitle { display:block; font-family:var(--serif); font-size:20px; font-weight:600; letter-spacing:.03em; line-height:1.6; color:var(--ink); margin-bottom:.45em; transition:color .2s ease; }
+.art:hover .atitle { color:var(--bronze); }
+.art .alead { display:block; font-size:14.5px; line-height:1.95; color:#5d514b; }
+.art .src { display:block; margin-top:10px; }
+/* 関連記事用の小型版 */
+.art.small .athumb { width:20%; }
+.art.small .abody { padding:20px 24px; }
+.art.small .adate { font-size:12.5px; margin-bottom:.6em; }
+.art.small .atitle { font-size:16.5px; margin-bottom:0; }
+.art.small .alead { display:none; }
+
+/* 記事詳細：リード画像とメタ行 */
+.eyecatch { margin:24px 0 4px; }
+.eyecatch img { width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:block; }
+.eyecatch.sq { max-width:560px; margin-left:auto; margin-right:auto; }
+.eyecatch.sq img { aspect-ratio:1/1; }
+.postmeta { font-size:13.5px; color:var(--sub); letter-spacing:.08em; margin:14px 0 0; font-variant-numeric:tabular-nums; }
+.postmeta .pcat { color:var(--bronze); }
+.postmeta .pcat::before { content:"|"; padding:0 .6em; color:var(--beige); }
+
+/* 記事末尾：一覧へ戻るボタン（adbox の CTA と同型） */
+.backlist { text-align:center; margin:46px 0 6px; }
+.backlist a { display:inline-block; width:300px; max-width:100%; min-height:50px; line-height:1.5; padding:13px 18px; background:var(--beige); color:#fff; text-decoration:none; font-size:14.5px; letter-spacing:.08em; transition:background .3s; }
+.backlist a:hover { background:var(--bronze); color:#fff; }
+
+@media (max-width:640px) {
+  .art { flex-direction:column; margin-bottom:24px; }
+  .art .athumb { width:100%; }
+  .art .athumb img { aspect-ratio:4/3; }
+  .art .abody { padding:20px 20px 18px; }
+  .art .adate { font-size:12.5px; margin-bottom:.7em; }
+  .art .atitle { font-size:16.5px; }
+  .art .alead { font-size:13.5px; line-height:1.9; }
+  .art.small { flex-direction:row; }
+  .art.small .athumb { width:30%; }
+  .art.small .athumb img { aspect-ratio:1/1; }
+  .art.small .abody { padding:14px 16px; }
+  .art.small .atitle { font-size:14.5px; }
+  .eyecatch { margin:18px 0 2px; }
+}
