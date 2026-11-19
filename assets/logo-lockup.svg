@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 240" width="1024" height="240" role="img" aria-label="コスメ選びラボ">
+  <!-- シンボルマーク AK（assets/logo.svg と同一の図形をそのまま配置） -->
+  <svg x="16" y="0" width="240" height="240" viewBox="0 0 240 240">
+    <defs>
+      <linearGradient id="gsw" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#D63350"/>
+        <stop offset="1" stop-color="#B01E36"/>
+      </linearGradient>
+      <radialGradient id="gswr" cx="0.44" cy="0.28" r="0.85">
+        <stop offset="0" stop-color="#EC6579"/>
+        <stop offset="0.5" stop-color="#C92A47"/>
+        <stop offset="1" stop-color="#93142C"/>
+      </radialGradient>
+    </defs>
+    <circle cx="120" cy="120" r="112" fill="#F7A8BE"/>
+    <path d="M94 112 L94 46 Q94 38 103 35 L140 26 Q148 24 148 33 L148 112 Z" fill="#C22440"/>
+    <rect x="90" y="112" width="64" height="12" rx="4" fill="#C6A15B"/>
+    <rect x="90" y="124" width="64" height="38" rx="6" fill="#C22440"/>
+    <path d="M64 190 C76 183 96 184 114 188 L168 194 C178 195 178 203 169 204 L116 209 C96 211 78 209 69 203 C61 198 57 195 64 190 Z" fill="url(#gswr)"/>
+  </svg>
+  <!-- ロゴタイプ：Shippori Mincho 太字／サイト見出し色 #3b3230 -->
+  <text x="308" y="154" font-family="'Shippori Mincho','Hiragino Mincho ProN','Hiragino Mincho Pro','Yu Mincho','YuMincho','Noto Serif CJK JP',serif" font-size="96" font-weight="700" letter-spacing="3" fill="#3b3230">コスメ選びラボ</text>
+</svg>
