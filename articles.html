@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>記事一覧｜コスメ選びラボ</title>
-<meta name="description" content="コスメ選びラボの記事一覧。化粧品の1mLあたり単価の計算方法と、定期購入の総額・解約条件の読み方をカテゴリ別に並べています。キーワードで絞り込みもできます。">
+<meta name="description" content="コスメ選びラボの記事一覧。質感と使う場面から商品を知る記事と、買う前に価格・容量・購入条件を確認する記事を、カテゴリ別に並べています。キーワードで絞り込みもできます。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <meta property="og:title" content="記事一覧｜コスメ選びラボ">
-<meta property="og:description" content="コスメ選びラボの記事一覧。化粧品の1mLあたり単価の計算方法と、定期購入の総額・解約条件の読み方をカテゴリ別に並べています。キーワードで絞り込みもできます。">
+<meta property="og:description" content="コスメ選びラボの記事一覧。質感と使う場面から商品を知る記事と、買う前に価格・容量・購入条件を確認する記事を、カテゴリ別に並べています。キーワードで絞り込みもできます。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cosme-erabi.globe-ent.com/articles.html">
 <meta property="og:image" content="https://cosme-erabi.globe-ent.com/ogp.png">
@@ -21,7 +21,7 @@
 </head>
 <body>
 <header class="site">
-  <div class="name"><a href="index.html">コスメ選びラボ</a></div>
+  <div class="name"><a href="index.html"><img class="logo" src="assets/logo.svg" alt="">コスメ選びラボ</a></div>
   <nav class="main">
     <a href="articles.html">記事一覧</a>
     <a href="articles/ml-tanka-dashikata.html">1mL単価の出し方</a>
@@ -110,6 +110,9 @@
   q.addEventListener('input', apply);
   apply();
 })();
+</script>
+<script>
+(function(){if(!('IntersectionObserver' in window))return;var els=document.querySelectorAll('main h2, main .card, main .thumbrow, main .pcard, main .sheet, main .adbox, main table, main figure');if(!els.length)return;els.forEach(function(e){e.classList.add('rv')});var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.08});els.forEach(function(e){io.observe(e)});})();
 </script>
 </body>
 </html>
