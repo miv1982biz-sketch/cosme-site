@@ -243,3 +243,23 @@ a.thumbrow:hover .t, .card.thumbrow:hover strong { color:var(--bronze); }
   .arow .rdate { font-size:12px; margin-bottom:3px; }
   .arow .rtitle { font-size:15px; line-height:1.55; }
 }
+
+/* ===== 第4段（2026-11-20）：CTAの型（記事の型・全記事共通） =====
+   CTA専用色はチェリーレッド #C22440（--cherry）。本文リンク・見出し・戻るボタンには使わない。
+   配置は熱のピーク（使う場面の直後／価格・条件の確認直後／記事末）の3か所。
+   構成は「広告の明示→受け文→ボタン→不安除去のマイクロコピー」 */
+.ctabox { border:1px solid var(--pink-line); background:var(--pink-soft); padding:24px 20px 22px; margin:30px 0; text-align:center; }
+.ctabox .src { text-align:left; margin:0 0 12px; }
+.ctabox .ctalead { font-family:var(--serif); font-size:16.5px; font-weight:600; letter-spacing:.03em; line-height:1.7; margin:0 0 14px; }
+.ctaholder { margin:0; }
+.ctabtn { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; max-width:480px; min-height:56px; margin:0 auto; padding:14px 22px; background:var(--cherry); color:#fff; font-size:16.5px; font-weight:700; letter-spacing:.05em; line-height:1.5; text-decoration:none; border-radius:4px; transition:background .3s; }
+.ctabtn::after { content:"→"; }
+a.ctabtn:hover { background:var(--cherry-dark); color:#fff; }
+.ctabox .ctamicro { font-size:12.5px; color:var(--sub); line-height:1.7; margin:10px 0 0; }
+/* 検証文書（条件確認の記事）の既存 adbox 内ボタンも、見た目だけ同じ型に統一する */
+.adbox p > a.ctabtn { width:100%; max-width:480px; min-height:56px; padding:14px 22px; background:var(--cherry); color:#fff; font-size:16.5px; font-weight:700; border-radius:4px; }
+.adbox p > a.ctabtn:hover { background:var(--cherry-dark); color:#fff; }
+@media (max-width:640px) {
+  .ctabox { padding:20px 16px 18px; margin:26px 0; }
+  .ctabtn { font-size:16px; }
+}
